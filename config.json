@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "components": "/components/",
+    "javascript": "/javascript/",
+    "pages": "/pages/**.jade",
+    "public": "/public/",
+    "styles": "/styles/",
+    "svg": "/svg/",
+    "logs": "/logs/",
+    "cssLibraries": [
+      "/bower_components/normalize.css/normalize.css"
+    ],
+    "jsLibraries" : [
+      "/bower_components/lodash/lodash.min.js",
+      "/bower_components/scrollReveal.js/dist/scrollReveal.min.js",
+      "/bower_components/jquery/dist/jquery.min.js"
+    ],
+    "jsMaps" : [
+      "/bower_components/jquery/dist/jquery.min.map"
+    ]
+  }
+}

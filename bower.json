@@ -1,0 +1,15 @@
+{
+  "name": "starkey-foundation",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Mark Scripter <mscripter@horizontalintegration.com>"
+  ],
+  "description": "Bower components for the Starkey Hearing Foundation site.",
+  "dependencies": {
+    "lodash": "~3.10.0",
+    "normalize.css": "~3.0.3",
+    "scrollReveal.js": "~2.3.2",
+    "jquery": "~2.1.4"
+  }
+}

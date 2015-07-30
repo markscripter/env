@@ -1,0 +1,72 @@
+/*****************
+  COLORS
+******************/
+
+//= White & Black
+@white: #ffffff;
+@black: #000000;
+
+//= Gray's
+@gray: lighten(@black, 50%);
+@gray--dark: lighten(@black, 25%);
+@gray--light: lighten(@black, 75%);
+
+//= Themed Colors
+@primary: #f2f2f2;
+@secondary: #2f2f2f;
+@accent: yellow;
+
+/*****************
+  Typography
+******************/
+
+//= Fonts
+@sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serif: Georgia, "Times New Roman", Times, serif;
+
+//= Font Sizes
+@font-size: 16px;
+@font-size--large: ceil((@font-size * 1.5)); // 24px
+@font-size--small: ceil((@font-size * 0.75)); // 12px;
+
+//= Headings
+@h1-size: ceil((@font-size * 2.5)); // 40px
+@h2-size: ceil((@font-size * 2)); // 32px
+@h3-size: ceil((@font-size * 1.75)); // 28px
+@h4-size: ceil((@font-size * 1.5)); // 24px
+@h5-size: ceil((@font-size * 1.25)); // 20px
+@h6-size: ceil((@font-size)); // 16px
+
+/*****************
+  Padding
+******************/
+@padding-vertical: 15px;
+@padding-vertical--small: ceil((@padding-vertical * 0.5)); // 8px
+@padding-vertical--large: ceil((@padding-vertical * 2)); // 30px
+@padding-horizontal: 2.5%;
+@padding-horizontal--small: ceil((@padding-horizontal * 0.5)); // 1.25%
+@padding-horizontal--large: ceil((@padding-horizontal * 2)); // 5%
+
+/*****************
+  Margin
+******************/
+@margin-vertical: 15px;
+@margin-vertical--small: ceil((@margin-vertical * 0.5)); // 8px
+@margin-vertical--large: ceil((@margin-vertical * 2)); // 30px
+@margin-horizontal: 2.5%;
+@margin-horizontal--small: ceil((@margin-horizontal * 0.5)); // 1.25%
+@margin-horizontal--large: ceil((@margin-horizontal * 2)); // 5%
+
+/*****************
+  Border Radius
+******************/
+@border-radius: 5px;
+@border-radius--small: 3px;
+@border-radius--large: 8px;
+
+/*****************
+  Line Height
+******************/
+@line-height: 1.5em;
+@line-height--small: 1em;
+@line-height--large: 2em;
