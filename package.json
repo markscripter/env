@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm i && bower i"
+    "update": "npm i && bower i"
   },
   "author": {
     "name": "Mark Scripter",
@@ -29,7 +29,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
     "gulp-eslint": "^0.15.0",
-    "gulp-express": "^0.3.5",
     "gulp-jade": "^1.1.0",
     "gulp-jsdoc": "^0.1.4",
     "gulp-less": "^3.0.3",
