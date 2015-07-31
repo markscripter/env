@@ -1,5 +1,5 @@
-# Starkey Foundation
-This repository is for the Front End Development Team. It's purpose is to facilitate the development of the Starkey Hearing Foundation website.
+# Environmental Setup
+This repository is for any Front End Development Team. It's purpose is to facilitate the development of the new websites or applications.
 
 ## Setup
 First, you will need some items installed in order to build, run and serve this project locally. You will need:
