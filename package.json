@@ -1,7 +1,7 @@
 {
-  "name": "starkey-foundation",
+  "name": "Environment-Setup",
   "version": "0.0.0",
-  "description": "Starkey's foundation website.",
+  "description": "An evnironment for FED's.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,6 +9,7 @@
   },
   "author": {
     "name": "Mark Scripter",
+    "email": "markscript@gmail.com",
     "url": "https://github.com/markscripter"
   },
   "license": "ISC",

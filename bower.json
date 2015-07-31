@@ -1,11 +1,11 @@
 {
-  "name": "starkey-foundation",
+  "name": "Environment-Setup",
   "main": "index.js",
   "version": "0.0.0",
   "authors": [
     "Mark Scripter <mscripter@horizontalintegration.com>"
   ],
-  "description": "Bower components for the Starkey Hearing Foundation site.",
+  "description": "Bower components",
   "dependencies": {
     "lodash": "~3.10.0",
     "normalize.css": "~3.0.3",
