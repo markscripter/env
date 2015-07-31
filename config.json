@@ -5,6 +5,10 @@
     "pages": "/pages/**.jade",
     "public": "/public/",
     "styles": "/styles/",
+    "styleguide": {
+      "styles": "/styles/_styleguide/_styleguide.less",
+      "pages": "/pages/_styleguide/_styleguide.jade"
+    },
     "svg": "/svg/",
     "logs": "/logs/",
     "cssLibraries": [

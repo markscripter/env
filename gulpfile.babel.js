@@ -2,6 +2,7 @@
   Imports
 *************************/
 import gulp from 'gulp';
+import babel from 'gulp-babel';
 import jade from 'gulp-jade';
 import uglify from 'gulp-uglify';
 import concat from 'gulp-concat';
@@ -17,7 +18,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import svgstore from 'gulp-svgstore';
 import svgmin from 'gulp-svgmin';
 import combiner from 'stream-combiner2';
-import glob from 'glob';
 import path from 'path';
 import winston from 'winston';
 import fs from 'fs';
@@ -50,19 +50,15 @@ gulp.task('build', ['jade', 'styles', 'javascript', 'svg']);
 gulp.task('serve', ['build', 'server']);
 
 // javascript task
-gulp.task('javascript', ['js-global', 'js-components', 'js-libraires', 'js-doc', 'js-maps']);
+gulp.task('javascript', ['js-global', 'js-components', 'js-libraries', 'js-doc', 'js-maps']);
 
 // jade task to build out jade template to static HTML files.
 gulp.task('jade', () => {
-  glob(path.join(__dirname, PATHS.pages), {}, (err, pages) => {
-    if (err) { return; }
-
-    pages.forEach((page) => {
-      gulp.src(page)
-        .pipe(jade())
-        .pipe(gulp.dest(path.join(__dirname, PATHS.public)));
-    });
-  });
+  return gulp.src(path.join(__dirname, PATHS.pages))
+    .pipe(jade({
+      pretty: true,
+    }))
+    .pipe(gulp.dest(path.join(__dirname, PATHS.public)));
 });
 
 // styles task to build out our LESS files into a stylesheet.
@@ -82,8 +78,25 @@ gulp.task('styles', () => {
     }))
     .pipe(gulp.dest(path.join(__dirname, PATHS.public, 'css/')))
     .pipe(cssMinify())
-    .pipe(rename('styleshee.min.css'))
+    .pipe(rename('stylesheet.min.css'))
     .pipe(gulp.dest(path.join(__dirname, PATHS.public, 'css/')));
+});
+
+gulp.task('styleguide', () => {
+  // build pages
+  gulp.src(path.join(__dirname, PATHS.styleguide.pages))
+    .pipe(jade({
+      pretty: true,
+    }))
+    .pipe(gulp.dest(path.join(__dirname, PATHS.public)));
+
+  // build styles
+  return gulp.src(path.join(__dirname, PATHS.styleguide.styles))
+    .pipe(sourcemaps.init())
+    .pipe(less())
+    .pipe(sourcemaps.write())
+    .pipe(rename('styleguide.css'))
+    .pipe(gulp.dest(path.join(__dirname, PATHS.public, 'css')));
 });
 
 // js-global task to combine our JS files
@@ -188,7 +201,7 @@ gulp.task('js-maps', () => {
 });
 
 // server task
-gulp.task('server', () => {
+gulp.task('server', ['es6-babel'], () => {
   const server = gls.new(['--harmony', 'index.js']);
   server.start();
 
@@ -206,4 +219,12 @@ gulp.task('svg', () => {
     .pipe(svgmin())
     .pipe(svgstore())
     .pipe(gulp.dest(path.join(__dirname, PATHS.public, 'assets/')));
+});
+
+// es6 babel
+gulp.task('es6-babel', () => {
+  return gulp.src(path.join(__dirname, '/index.babel.js'))
+    .pipe(babel())
+    .pipe(rename('index.js'))
+    .pipe(gulp.dest(path.join(__dirname, '/')));
 });
