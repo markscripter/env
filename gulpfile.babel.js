@@ -82,6 +82,7 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(path.join(__dirname, PATHS.public, 'css/')));
 });
 
+// styleguide builds out the items for the styleguide.
 gulp.task('styleguide', () => {
   // build pages
   gulp.src(path.join(__dirname, PATHS.styleguide.pages))

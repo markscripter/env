@@ -14,15 +14,22 @@ First, you will need some items installed in order to build, run and serve this 
 
 After installing Node & NPM, install the NPM packages using these commands:
 
-    sudo npm i -g gulp          // installs Gulp
     sudo npm i -g eslint        // installs eslint
+    sudo npm i -g babel         // es6 - es5 stuff
     sudo npm i -g babel-eslint  // installs babel's plugin for eslint
+    sudo npm i -g gulp          // installs Gulp
+    sudo npm i -g jade          // templating library
+    sudo npm i -g jsdoc         // javascript documentation
+    sudo npm i -g svgo          // SVG optimizer
+
+
 
 This should setup your environment so you can build and run this project solution. The next step is to install all of the project's dependencies.
 
 To do this, run:
 
-    npm i      // installs all the project's dependncies
+    npm i       // installs all the node dependencies
+    bower i     // installs all the bower dependencies.
 
 This will grab the dependencies from the package.json file and install them.
 
@@ -35,6 +42,7 @@ The following are a list of build commands for this project.
     gulp javascript // this builds out all of the javascript tasks
 
     // SPECIFIC TASKS
+    gulp es6-babel      // builds out the express file so it can be ran in nodes es5 environment
     gulp jade           // builds jade templates
     gulp styles         // builds less files
     gulp js-global      // builds the global javascript files
@@ -43,4 +51,5 @@ The following are a list of build commands for this project.
     gulp js-jsdoc       // builds out the JSDOCS
     gulp js-maps        // moves the javascript map files into the public directory for use
     gulp server         // runs a local server instance
+    gulp styleguide     // builds out the styleguide items
     gulp svg            // builds svg's
