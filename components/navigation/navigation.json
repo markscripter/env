@@ -1,0 +1,31 @@
+{
+  "mainNav": {
+    "links": [
+      {
+        "text": "Who We re",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Hearing Missions",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Programs",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Gala",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Take Action",
+        "href": "#",
+        "target": "_self"
+      }
+    ]
+  }
+}

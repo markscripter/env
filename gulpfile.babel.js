@@ -21,6 +21,8 @@ import combiner from 'stream-combiner2';
 import path from 'path';
 import winston from 'winston';
 import fs from 'fs';
+import glob from 'glob';
+import pageData from './_helpers/pageData';
 
 /*************************
   Import our config object
@@ -44,26 +46,38 @@ winston.add(winston.transports.DailyRotateFile, {filename: path.join(logDirector
 *************************/
 
 // build task
-gulp.task('build', ['jade', 'styles', 'javascript', 'svg']);
+gulp.task('build', ['jade', 'styles', 'styleguide', 'es6-babel', 'javascript', 'svg']);
 
 // serve task
 gulp.task('serve', ['build', 'server']);
 
 // javascript task
-gulp.task('javascript', ['js-global', 'js-components', 'js-libraries', 'js-doc', 'js-maps']);
+gulp.task('javascript', ['js-global', 'js-components', 'js-libraries', 'js-jsdoc', 'js-maps']);
 
 // jade task to build out jade template to static HTML files.
 gulp.task('jade', () => {
-  return gulp.src(path.join(__dirname, PATHS.pages))
-    .pipe(jade({
-      pretty: true,
-    }))
-    .pipe(gulp.dest(path.join(__dirname, PATHS.public)));
+  // get glob of pages
+  glob(path.join(__dirname, PATHS.pages), {}, (err, pages) => {
+    if (err) winston.error(err);
+
+    // for each page
+    pages.forEach((page) => {
+      const data = pageData();
+      gulp.src(page)
+        .pipe(jade({
+          locals: data,
+          pretty: true,
+        }))
+        .pipe(gulp.dest(path.join(__dirname, PATHS.public)));
+    });
+  });
+
+  return;
 });
 
 // styles task to build out our LESS files into a stylesheet.
 gulp.task('styles', () => {
-  const globalCSS = PATHS.csseveryLibraries.map((filePath) => {
+  const globalCSS = PATHS.cssLibraries.map((filePath) => {
     return path.join(__dirname, filePath);
   });
 
@@ -141,13 +155,7 @@ gulp.task('js-libraries', () => {
       footer: '/* \n END ${filename} \n */ \n',
     }),
     sourcemaps.init(),
-    concat('main.js'),
-    gulp.dest(path.join(__dirname, PATHS.public, 'js/')),
-    uglify({
-      mangle: false,
-      compress: true,
-    }),
-    rename('main.min.js'),
+    concat('libs.min.js'),
     gulp.dest(path.join(__dirname, PATHS.public, 'js/')),
   ]);
 
