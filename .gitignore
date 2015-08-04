@@ -5,6 +5,6 @@ bower_components/
 logs/
 public/
 
-.DS_Store
-
 ./index.js
+
+.DS_Store
