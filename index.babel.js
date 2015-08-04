@@ -32,6 +32,7 @@ app.engine('jade', require('jade').__express);
 // static content
 app.use('/css', express.static('public/css'));
 app.use('/js', express.static('public/js'));
+app.use('/jsdocs', express.static('public/jsdocs'));
 app.use(express.static('public'));
 
 // logging

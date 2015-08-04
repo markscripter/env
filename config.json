@@ -3,6 +3,8 @@
     "components": "/components/",
     "javascript": "/javascript/",
     "pages": "/pages/**.jade",
+    "data" : "/pages/pageData.json",
+    "compData" : "/components/**/**.json",
     "public": "/public/",
     "styles": "/styles/",
     "styleguide": {

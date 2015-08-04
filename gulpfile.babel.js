@@ -62,7 +62,7 @@ gulp.task('jade', () => {
 
     // for each page
     pages.forEach((page) => {
-      const data = pageData();
+      const data = pageData(path.join(__dirname, PATHS.data), path.join(__dirname, PATHS.compData));
       gulp.src(page)
         .pipe(jade({
           locals: data,
