@@ -1,21 +1,12 @@
 {
   "paths": {
-    "components": "/components/",
-    "javascript": "/javascript/",
-    "pages": "/pages/**.jade",
-    "data" : "/pages/pageData.json",
     "compData" : "/components/**/**.json",
-    "public": "/public/",
-    "styles": "/styles/",
-    "styleguide": {
-      "styles": "/styles/_styleguide/_styleguide.less",
-      "pages": "/pages/_styleguide/_styleguide.jade"
-    },
-    "svg": "/svg/",
-    "logs": "/logs/",
+    "components": "/components/",
     "cssLibraries": [
       "/bower_components/normalize.css/normalize.css"
     ],
+    "data" : "/pages/pageData.json",
+    "javascript": "/javascript/",
     "jsLibraries" : [
       "/bower_components/lodash/lodash.min.js",
       "/bower_components/scrollReveal.js/dist/scrollReveal.min.js",
@@ -23,6 +14,15 @@
     ],
     "jsMaps" : [
       "/bower_components/jquery/dist/jquery.min.map"
-    ]
+    ],
+    "logs": "/logs/",
+    "pages": "/pages/**.jade",
+    "public": "/public/",
+    "styleguide": {
+      "styles": "/styles/_styleguide/_styleguide.less",
+      "pages": "/pages/_styleguide/_styleguide.jade"
+    },
+    "styles": "/styles/",
+    "svg": "/svg/"
   }
 }

@@ -2,27 +2,46 @@
   "mainNav": {
     "links": [
       {
-        "text": "Who We re",
+        "text": "Main Link 1",
         "href": "#",
         "target": "_self"
       },
       {
-        "text": "Hearing Missions",
+        "text": "Main Link 2",
         "href": "#",
         "target": "_self"
       },
       {
-        "text": "Programs",
+        "text": "Main Link 3",
         "href": "#",
         "target": "_self"
       },
       {
-        "text": "Gala",
+        "text": "Main Link 4",
         "href": "#",
         "target": "_self"
       },
       {
-        "text": "Take Action",
+        "text": "Main Link 5",
+        "href": "#",
+        "target": "_self"
+      }
+    ]
+  },
+  "utilityNav": {
+    "links": [
+      {
+        "text": "Utility Link 1",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Utility Link 2",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Utility Link 3",
         "href": "#",
         "target": "_self"
       }

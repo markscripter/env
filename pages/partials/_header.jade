@@ -1,8 +1,14 @@
 include ../../components/navigation/markup/navigation.jade
 
-header
-  div(class="logo")
-    a(href="#")
-      img(src="#" alt="" title="")
-  if(mainNav)
-    +mainNavigation(mainNav)
+header.container
+  div(class="row")
+    if(utilityNav)
+      nav(id="utility-nav" class="navigation clearfix row")
+        +navigation(utilityNav)
+  div(class="row")
+    div(class="logo")
+      a(href="#")
+        img(src="#" alt="" title="")
+    if(mainNav)
+      nav(id="main-nav" class="navigation")
+        +navigation(mainNav)

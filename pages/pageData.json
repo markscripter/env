@@ -1,3 +1,51 @@
 {
-  "pageTitle" : "Environment Setup"
+  "pageTitle" : "Environment Setup",
+  "mainNav": {
+    "links": [
+      {
+        "text": "Who We Are",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Hearing Missions",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Programs",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Gala",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Take Action",
+        "href": "#",
+        "target": "_self"
+      }
+    ]
+  },
+  "utilityNav": {
+    "links": [
+      {
+        "text": "Videos",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "News & Events",
+        "href": "#",
+        "target": "_self"
+      },
+      {
+        "text": "Blog",
+        "href": "#",
+        "target": "_self"
+      }
+    ]
+  }
 }

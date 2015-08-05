@@ -49,7 +49,7 @@ winston.add(winston.transports.DailyRotateFile, {filename: path.join(logDirector
 gulp.task('build', ['jade', 'styles', 'styleguide', 'es6-babel', 'javascript', 'svg']);
 
 // serve task
-gulp.task('serve', ['build', 'server']);
+gulp.task('serve', ['build', 'watch', 'server']);
 
 // javascript task
 gulp.task('javascript', ['js-global', 'js-components', 'js-libraries', 'js-jsdoc', 'js-maps']);
@@ -120,8 +120,8 @@ gulp.task('js-global', () => {
     gulp.src(path.join(__dirname, PATHS.javascript, '*.js')),
     eslint(),
     wrapper({
-      header: '/* \n ${filename} \n */ \n',
-      footer: '/* \n END ${filename} \n */ \n',
+      header: '\n/* \n ${filename} \n */ \n',
+      footer: '\n/* \n END ${filename} \n */ \n',
     }),
     sourcemaps.init(),
     concat('main.js'),
@@ -151,8 +151,8 @@ gulp.task('js-libraries', () => {
     gulp.src(libs),
     eslint(),
     wrapper({
-      header: '/* \n ${filename} \n */ \n',
-      footer: '/* \n END ${filename} \n */ \n',
+      header: '\n/* \n ${filename} \n */ \n',
+      footer: '\n/* \n END ${filename} \n */ \n',
     }),
     sourcemaps.init(),
     concat('libs.min.js'),
@@ -213,13 +213,6 @@ gulp.task('js-maps', () => {
 gulp.task('server', ['es6-babel'], () => {
   const server = gls.new(['--harmony', 'index.js']);
   server.start();
-
-  // gulp.watch(paths.scripts, ['javascript'], () => {
-  //   server.notify.apply(server, arguments);
-  // });
-  // gulp.watch([paths.jade], ['jade'], () => {
-  //   server.notify.apply(server, arguments);
-  // });
 });
 
 // svg task
@@ -236,4 +229,20 @@ gulp.task('es6-babel', () => {
     .pipe(babel())
     .pipe(rename('index.js'))
     .pipe(gulp.dest(path.join(__dirname, '/')));
+});
+
+// watch
+gulp.task('watch', () => {
+  gulp.watch([
+    path.join(__dirname, PATHS.styles, '**.less'),
+    path.join(__dirname, PATHS.styles, '**/**.less'),
+    path.join(__dirname, PATHS.components, '**/less/**.less'),
+  ], ['styles']);
+  gulp.watch([
+    path.join(__dirname, PATHS.pages),
+    path.join(__dirname, '/pages/**/*.jade'),
+    path.join(__dirname, PATHS.components + '**/markup/**.jade'),
+    path.join(__dirname, PATHS.compData),
+    path.join(__dirname, PATHS.data),
+  ], ['jade']);
 });

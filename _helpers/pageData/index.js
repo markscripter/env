@@ -13,5 +13,9 @@ module.exports = function getPageData(root, comps) {
     _.extend(tempData, require(page));
   });
 
-  return _.extend(data, tempData);
+  // since require will cache the origin items returned from the require(root) call,
+  // we need to delete the cache so it fetches any updated data from the json file
+  delete require.cache[require.resolve(root)];
+
+  return _.extend(tempData, data);
 };
